@@ -8,13 +8,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { PostService } from './service/post.service';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostListItemComponent } from './components/post-list-item/post-list-item.component';
+import { AddPostFormComponent } from './components/add-post-form/add-post-form.component';
+import { CategoryService } from './service/category.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBarComponent,
     PostListComponent,
-    PostListItemComponent
+    PostListItemComponent,
+    AddPostFormComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { PostListItemComponent } from './components/post-list-item/post-list-ite
     HttpClientModule
   ],
   providers: [
-    PostService
+    PostService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

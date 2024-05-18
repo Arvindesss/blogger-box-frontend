@@ -7,10 +7,15 @@ import { environement } from "../../environments/environment";
 
 @Injectable()
 export class PostService {
-    private postsURL = `${environement.apiUrl}v1/posts` 
+    private postsURL = `${environement.apiUrl}v1/posts`
 
-    constructor(private http : HttpClient) { }
+    constructor(private http: HttpClient) { }
+
     getPosts(): Observable<Post[]> {
        return this.http.get<Post[]>(this.postsURL);
+    }
+
+    createPost(postRequestBody: any):  Observable<Post[]> {
+        return this.http.post<Post[]>(this.postsURL, postRequestBody);
     }
 }
