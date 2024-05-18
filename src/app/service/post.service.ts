@@ -1,15 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
-import { POSTS } from "../mock/post";
 import { Post } from "../data/post";
-import { Observable, of } from "rxjs";
+import { Observable} from "rxjs";
+import { environement } from "../../environments/environment";
 
 @Injectable()
 export class PostService {
-    constructor(private http:HttpClient) { }
+    private postsURL = `${environement.apiUrl}v1/posts` 
+
+    constructor(private http : HttpClient) { }
     getPosts(): Observable<Post[]> {
-        const posts = of(POSTS);
-        return posts;
+       return this.http.get<Post[]>(this.postsURL);
     }
 }
