@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
-import { Post } from "../data/post";
+import { Post, PostCreateInput } from "../data/post";
 import { Observable} from "rxjs";
 import { environement } from "../../environments/environment";
 
@@ -15,7 +15,7 @@ export class PostService {
        return this.http.get<Post[]>(this.postsURL);
     }
 
-    createPost(postRequestBody: any):  Observable<Post[]> {
+    createPost(postRequestBody: PostCreateInput):  Observable<Post[]> {
         return this.http.post<Post[]>(this.postsURL, postRequestBody);
     }
 }
