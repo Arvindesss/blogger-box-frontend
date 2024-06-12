@@ -11,8 +11,8 @@ export class PostService {
 
     constructor(private http: HttpClient) { }
 
-    getPosts(): Observable<Post[]> {
-       return this.http.get<Post[]>(this.postsURL);
+    getPostsDesc(): Observable<Post[]> {
+       return this.http.get<Post[]>(this.postsURL + "/desc");
     }
 
     createPost(postRequestBody: PostCreateInput):  Observable<Post[]> {
