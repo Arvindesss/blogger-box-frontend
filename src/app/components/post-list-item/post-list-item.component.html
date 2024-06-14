@@ -5,9 +5,6 @@
         <span class="badge rounded-pill text-bg-light">
             {{ post.category.name }}
         </span>
-        <!-- Displaying the date with a pipe breaks the app due to wrong date json format sent by backend, so we display it raw 
-           Instead of : <span>{{ post.createdDate | date : "medium" }}</span> 
-        We have: -->
-        <span>{{ post.createdDate }}</span> 
+        <span>{{ post.createdDate | date : "medium" }}</span> 
     </div>
 </div>
